@@ -14,8 +14,16 @@ public:
 	CartesianPoint(int x = 1, int y = 1);
 	~CartesianPoint(); // Destructor which does memory cleanup.
 
+	/* Copy Constructor */
+	CartesianPoint(const CartesianPoint& point2);
+
+	
 	/* Operator overloads */
+
+	CartesianPoint operator+(const CartesianPoint& point2) const;
+	
 	double operator-(const CartesianPoint& point_to) const;
+	bool operator==(const CartesianPoint& other_point) const;
 	// --------------------------------------------------------------------------------
 	/* Accessors: Used to query the state of the object */
 
