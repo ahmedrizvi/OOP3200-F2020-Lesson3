@@ -3,7 +3,6 @@
 #define __CARTESIAN_POINT__
 #include <string>
 
-#endif /*defined (__CARTESIAN_POINT__)*/
 
 // class declaration section
 class CartesianPoint
@@ -24,6 +23,11 @@ public:
 	
 	double operator-(const CartesianPoint& point_to) const;
 	bool operator==(const CartesianPoint& other_point) const;
+
+	/* Friend overloads */
+	friend std::ostream& operator<<(std::ostream& out, const CartesianPoint& point);
+	friend std::istream& operator>>(std::istream& in, CartesianPoint& point);
+	
 	// --------------------------------------------------------------------------------
 	/* Accessors: Used to query the state of the object */
 
@@ -55,8 +59,9 @@ public:
 
 private:
 	// private data members for the dimensions of the point
-	int myX{}; // x-axis (horizontal) value
-	int myY{};  // y-axis (vertical) value
+	int m_x{}; // x-axis (horizontal) value
+	int m_y{};  // y-axis (vertical) value
 
 };
 
+#endif /*defined (__CARTESIAN_POINT__)*/
